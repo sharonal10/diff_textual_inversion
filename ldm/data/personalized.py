@@ -191,7 +191,9 @@ class PersonalizedBase(Dataset):
         if self.per_image_tokens and np.random.uniform() < self.mixing_prob:
             text = random.choice(imagenet_dual_templates_small).format(placeholder_string, per_img_token_list[i % self.num_images])
         else:
-            text = random.choice(imagenet_templates_small).format(placeholder_string)
+            text = random.choice(imagenet_templates_smallest).format(placeholder_string)
+
+        print('text:', text)
             
         example["caption"] = text
 
